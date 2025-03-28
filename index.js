@@ -32,8 +32,12 @@ const userMOdel = mongoose.model('user',userSchema);
 
 
 // req to server 
-app.get('/',(req,res)=>{
-    res.send('Welcome!');
+app.get('/',async (req,res)=>{
+    const newUser = await userMOdel.create({
+        Email:"bhai@gmail.com",
+        Password:"122njdosk"
+    })
+    res.send(newUser);
 })
 
 // post to server 
